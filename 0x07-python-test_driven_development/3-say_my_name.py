@@ -2,7 +2,7 @@
 
 '''
 Module say_my_name(first_name, last_name="")
-have a funtcion that
+have a function that
 print firstname and lastname
 '''
 
