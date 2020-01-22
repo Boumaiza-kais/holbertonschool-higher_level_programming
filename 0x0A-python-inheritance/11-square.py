@@ -14,9 +14,9 @@ class Square(Rectangle):
         '''
         initializing a class
         '''
-        super().integer_validator(size, size)
-        super().__init__(size, size)
-        self.size = size
+        self.integer_validator("size", size)
+        self.__size = size
+        super().__init__(self.__size, self.__size)
 
     def __str__(self):
         return "[Square] {}/{}".format(self.size, self.size)
