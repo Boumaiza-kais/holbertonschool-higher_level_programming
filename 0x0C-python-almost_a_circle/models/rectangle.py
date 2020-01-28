@@ -6,7 +6,6 @@ class Rectangle(Base):
     """ Base class of Rectangle"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-       """"""
         self.width = width
         self.height = height
         self.x = x
@@ -79,7 +78,9 @@ class Rectangle(Base):
                     print('#', end="")
                 print()
 
-
         def __str__(self):
-            return "[Rectangle] ({}) {}/{} - {}/{}"\
-            .format(self.id, self.x, self.y, self.width, self.height)
+            return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x,
+                                                       self.y,
+                                                       self.width,
+                                                       self.height)
