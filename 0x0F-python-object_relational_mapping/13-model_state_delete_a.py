@@ -10,14 +10,15 @@ from sqlalchemy.orm import sessionmaker
 from sys import argv
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-                            argv[1], argv[2], argv[3]))
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
 
-    Base.metadata.create_all(eng)
-    Session = sessionmaker(bind=eng)
-    session = Session()
-    states = session.query(State).filter(State.name.like('%a%'))
-    for state in states:
-        session.delete(state)
-    session.commit()
+    Base.metadata.create_all(engine)
+    session = Session(engine)
+    state = session.query(State).filter_by(name=sys.argv[4]).first()
+
+    if (state):
+        print("{}".format(state.id))
+    else:
+        print("Not found")
     session.close()
