@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ script that lists all State objects from the database hbtn_0e_6_usa """
 
+
 import sqlalchemy
 import sys
 from model_state import Base, State
