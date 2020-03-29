@@ -15,10 +15,6 @@ if __name__ == "__main__":
 
     Base.metadata.create_all(engine)
     session = Session(engine)
-    state = session.query(State).filter_by(name=sys.argv[4]).first()
-
-    if (state):
-        print("{}".format(state.id))
-    else:
-        print("Not found")
-    session.close()
+    for state in session.query(State).filter(State.name.like("%a%")):
+        session.delete(state)
+    session.commit()
